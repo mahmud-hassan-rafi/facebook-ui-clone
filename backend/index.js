@@ -15,11 +15,16 @@ databaseConnection(process.env.MONGO_URI);
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://facebook-ui-clone-orcin.vercel.app",
+    ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     credentials: true,
-  })
+  }),
 );
+
+app.use("/", (req, res) => res.send("API is working!"));
 
 // routes
 app.use("/api/auth", express.json(), authRoute);
