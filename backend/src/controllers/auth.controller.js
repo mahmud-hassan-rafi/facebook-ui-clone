@@ -31,8 +31,8 @@ export const handleSignupRoute = async (req, res) => {
   res.cookie("token", jwtToken, {
     maxAge: 60 * 60 * 1000,
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "Lax",
+    secure: true,
+    sameSite: "none",
   });
   res
     .status(200)

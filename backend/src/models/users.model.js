@@ -10,12 +10,12 @@ const userSchema = mongoose.Schema({
   gender: { type: String, required: true },
   profilePicture: {
     type: String,
-    unique: true,
+    required: true,
     default: path.join(
       process.cwd(),
       "src",
       "assets",
-      "default-profle-male.jpg"
+      "default-profle-male.jpg",
     ),
   },
 });
